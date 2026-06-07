@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/TEJASJONDHALE/ghostmesh/internal/config"
+	"github.com/TEJASJONDHALE/ghostmesh/internal/identity"
 	"github.com/spf13/cobra"
 )
 
@@ -38,6 +39,13 @@ func startCmd() *cobra.Command {
 			fmt.Println("[ghostd] daemon running — press Ctrl+C to stop")
 
 			// Block forever - signal handling
+			id, err := identity.LoadOrCreate(cfg)
+			if err != nil {
+				return fmt.Errorf("identity init failed: %w", err)
+			}
+			fmt.Printf("[ghostd] identity initialized %s\n", id)
+
+			// ... next: registry.Open(), discovery.Start(), etc.
 			select {}
 		},
 	}
