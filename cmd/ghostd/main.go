@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"os"
-
 	"github.com/TEJASJONDHALE/ghostmesh/internal/config"
+	//	"github.com/TEJASJONDHALE/ghostmesh/internal/discovery"
 	"github.com/TEJASJONDHALE/ghostmesh/internal/identity"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 func main() {
